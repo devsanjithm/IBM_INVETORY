@@ -232,7 +232,7 @@ export const DrawerComponent = () => {
 
         </Drawer>
         <div style={{ marginTop: "70px", marginLeft: "10px", width: "100%" }}>
-          <MainRoutes />
+          {/* <MainRoutes /> */}
         </div>
 
       </Box>

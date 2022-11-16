@@ -16,6 +16,8 @@ import { StockPage } from "./pages/Stock"
 import { AddStockPage } from "./pages/AddStock"
 import { AddSalesPage } from "./pages/AddSalse"
 import { AddEmployeesPage } from "./pages/AddEmployees"
+import { Login } from "./pages/Login"
+import { Register } from "./pages/Register"
 
 
 
@@ -24,8 +26,10 @@ return(
     <div>
     <Routes>
         <Route path="/" element={<InnerRoutes/>}>
-        <Route path="/" element={<Navigate to ="HomePage"/>} />
+        <Route path="/" element={<Navigate to ="Login"/>} />
         <Route path="/HomePage" element={<HomePage/>} />
+        <Route path="/signup" element={<Register/>} />
+        <Route path="/Login" element={<Login/>} />
         <Route path="/ProductPage" element={<ProductPage/>} />
         <Route path="/ReportPage" element={<ReportPage/>} />
         <Route path="/SalesPage" element={<SalesPage/>} />

@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 //Bar Chart
 import { BarChart } from "../../components/BarChart";
 import { LineBarChart } from "../../components/LineBarChart";
+import { DrawerComponent } from "../../components/Drawer";
 
 
 export const HomePage=()=>{
@@ -24,6 +25,7 @@ export const HomePage=()=>{
   
     return(
         <>
+        <DrawerComponent/>
         <Box>
       <Grid container spacing={2}>
         <Grid item xs={3}>
