@@ -25,7 +25,7 @@ export const HomePage=()=>{
   
     return(
         <>
-        <DrawerComponent/>
+      
         <Box>
       <Grid container spacing={2}>
         <Grid item xs={3}>

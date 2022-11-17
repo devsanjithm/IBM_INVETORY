@@ -26,10 +26,8 @@ return(
     <div>
     <Routes>
         <Route path="/" element={<InnerRoutes/>}>
-        <Route path="/" element={<Navigate to ="Login"/>} />
+        <Route path="/" element={<Navigate to ="HomePage"/>} />
         <Route path="/HomePage" element={<HomePage/>} />
-        <Route path="/signup" element={<Register/>} />
-        <Route path="/Login" element={<Login/>} />
         <Route path="/ProductPage" element={<ProductPage/>} />
         <Route path="/ReportPage" element={<ReportPage/>} />
         <Route path="/SalesPage" element={<SalesPage/>} />

@@ -1,15 +1,24 @@
 import { Avatar, Button, TextField } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { Grid } from '@mui/material';
-import React from "react"
+import React, { useEffect,useContext, useState } from "react"
 import { Link, useNavigate} from "react-router-dom";
+import { UserContext } from "../../context";
 
 export const Login=()=>{
+    const [Lemail, setLemail] = useState("");
+    const [Lpass, setLpass] = useState("");
     const navigate=useNavigate();
     const pstyle={padding:30 ,height:'50vh', width:280,margin:'40px auto'}
+    const{setUser}:any=useContext(UserContext)
 
     function handleLogin() {
-      navigate("/HomePage")
+        if(Lemail!=="" && Lpass!==""){
+        setUser(true);
+        }
+        else{
+            alert("error")
+        }
         
     }
     return(
@@ -19,8 +28,8 @@ export const Login=()=>{
                 {/* <Avatar style={astyle}><LockOutlinedIcon/></Avatar> */}
                 <h2 >Signin</h2>
                 </Grid>
-                <TextField  label='Email' id='outlined-basic' fullWidth/><br/><br/>
-                <TextField  label='Password'  type='password'id='outlined-basic' fullWidth/><br/><br/>
+                <TextField onChange={(event) => {setLemail(event.target.value);}} label='Email' id='outlined-basic' fullWidth/><br/><br/>
+                <TextField onChange={(event) => {setLpass(event.target.value);}} label='Password'  type='password'id='outlined-basic' fullWidth/><br/><br/>
                 <Button onClick={() => {handleLogin()}} type='submit' fullWidth>Login</Button>
                 New here?<Link to="/signup"> Signup</Link>
                 

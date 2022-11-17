@@ -24,6 +24,9 @@ import ShowChartIcon from '@mui/icons-material/ShowChart';
 import CategoryIcon from '@mui/icons-material/Category';
 import { Link } from 'react-router-dom';
 import { MainRoutes } from '../../Routes';
+import { Button } from '@mui/material';
+import { setDefaultResultOrder } from 'dns/promises';
+import { UserContext } from '../../context';
 
 const drawerWidth = 240;
 
@@ -97,6 +100,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export const DrawerComponent = () => {
+  const{setUser}:any=React.useContext(UserContext)
+  function handleLogout(){
+    setUser(false);
+  }
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -188,6 +195,7 @@ export const DrawerComponent = () => {
             </IconButton>
             <Typography variant="h6" noWrap component="div" style={{ color: "white" }}>
               Inventory Dashboard
+              <Button style={{color:'white'}} onClick={() => {handleLogout()}}>Logout</Button>
             </Typography>
           </Toolbar>
         </AppBar>
@@ -232,7 +240,7 @@ export const DrawerComponent = () => {
 
         </Drawer>
         <div style={{ marginTop: "70px", marginLeft: "10px", width: "100%" }}>
-          {/* <MainRoutes /> */}
+          <MainRoutes />
         </div>
 
       </Box>
