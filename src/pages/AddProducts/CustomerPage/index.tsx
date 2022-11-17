@@ -7,6 +7,24 @@ import { Grid } from "@mui/material";
 export const CustomerTablePage = () => {
 
     const Navigate = useNavigate()
+
+    const columnDefs = [
+        { field: 'Sno' },
+        { field: 'CustomerName' },
+        { field: 'CustomerEmail' },
+        { field: 'WarehouseName' },
+        { field: 'Phone' },
+        { field: 'Country' },
+    ];
+
+    const rowDef = [
+        { Sno: "1", CustomerName: "Sudev", CustomerEmail: "sudev@gmail.com", WarehouseName: 'Ware', Phone: '9876543210', Country: 'India' },
+        { Sno: "1", CustomerName: "Sudev", CustomerEmail: "sudev@gmail.com", WarehouseName: 'Ware', Phone: '9876543210', Country: 'India' },
+        { Sno: "1", CustomerName: "Sudev", CustomerEmail: "sudev@gmail.com", WarehouseName: 'Ware', Phone: '9876543210', Country: 'India' },
+        { Sno: "1", CustomerName: "Sudev", CustomerEmail: "sudev@gmail.com", WarehouseName: 'Ware', Phone: '9876543210', Country: 'India' },
+        { Sno: "1", CustomerName: "Sudev", CustomerEmail: "sudev@gmail.com", WarehouseName: 'Ware', Phone: '9876543210', Country: 'India' }
+    ]
+
     return (
         <>
             <Grid container spacing={2} style={{ marginLeft: "15px" }}>
@@ -18,7 +36,7 @@ export const CustomerTablePage = () => {
                 </Grid>
             </Grid>
 
-            <CustomGrid />
+            <CustomGrid columnDefs={columnDefs} rowData={rowDef} />
         </>
     )
 }
