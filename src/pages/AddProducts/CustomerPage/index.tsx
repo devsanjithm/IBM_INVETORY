@@ -1,12 +1,31 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { CustomGrid } from "../../../components/DataGrid";
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 
 export const CustomerTablePage = () => {
+    const [data,setData]=useState("")
 
     const Navigate = useNavigate()
+
+    useEffect(() => {
+        getData()
+      }, []);
+
+    async function getData(){
+
+            const response = await fetch("API adsress");
+            
+            
+            var data = await response.json();
+            
+            console.log(data);
+            setData(data)
+
+            
+            }
+
 
     const columnDefs = [
         { field: 'Sno' },
@@ -36,7 +55,7 @@ export const CustomerTablePage = () => {
                 </Grid>
             </Grid>
 
-            <CustomGrid columnDefs={columnDefs} rowData={rowDef} />
+            <CustomGrid columnDefs={columnDefs} rowData={data} />
         </>
     )
 }

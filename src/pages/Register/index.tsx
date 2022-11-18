@@ -14,30 +14,31 @@ export const Register=()=>{
     const{setUser}:any=useContext(UserContext)
 
     function handleRegister() {
-        if(Remail!=="" || Rpass!=="" || Rname==""){
-            fetch ("API Address", {
-                method: "POST",
-                body: JSON.stringify({
-                  email: Remail,
-                  password:Rpass,
-                  name:Rname
-               }),
-               })
-             .then((response) => response.json())
-             .then((result) => {
-                 if(result.message === "SUCCESS"){
-                 alert("Registeration Successfull");
-                 setUser(true);
+        if(Remail!=="" && Rpass!=="" && Rname!==""){
+            // fetch ("API Address", {
+            //     method: "POST",
+            //     body: JSON.stringify({
+            //       email: Remail,
+            //       password:Rpass,
+            //       name:Rname
+            //    }),
+            //    })
+            //  .then((response) => response.json())
+            //  .then((result) => {
+            //      if(result.message === "SUCCESS"){
+            //      alert("Registeration Successfull");
+            //      setUser(true);
                  
-                } 
-                else {
-                    alert("Please check your login information.");
-                }
-               });
+            //     } 
+            //     else {
+            //         alert("Please check your login information.");
+            //     }
+            //    });
+            setUser(true);
         
         }
         else{
-            alert("Enter valid Email address and password")
+            alert("Enter correct details")
         }
     }
     return(

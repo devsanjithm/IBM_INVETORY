@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { CustomGrid } from "../../components/DataGrid";
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,25 @@ import { Grid } from "@mui/material";
 
 export const ProductPage = () => {
     const Navigate = useNavigate()
+    const [data,setData]=useState("");
+
+    useEffect(() => {
+        getProduct()
+      }, []);
+
+    async function getProduct(){
+
+        const response = await fetch("API adsress");
+        
+        
+        var data = await response.json();
+        
+        console.log(data);
+        setData(data)
+
+        
+        }
+
 
     const columnDefs = [
         { field: 'Sno' },
@@ -32,7 +51,7 @@ export const ProductPage = () => {
                     <Button variant="contained" style={{ marginTop: "10px" }} onClick={() => Navigate("/AddProductsPage")}>Add Product</Button>
                 </Grid>
             </Grid>
-            <CustomGrid columnDefs={columnDefs} rowData={rowDef} />
+            <CustomGrid columnDefs={columnDefs} rowData={data} />
 
         </>
     )

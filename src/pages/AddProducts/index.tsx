@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -15,6 +15,40 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
  
 
 export const AddProductsPage=()=>{
+
+  function handleProducts(values:any) {
+    if(values!==null){
+        fetch ("API Address", {
+            method: "POST",
+            body: JSON.stringify({
+              Customer:values.Customer,
+              ProductName: values.ProductName,
+              ProductCode: values.ProductCode,
+              HSN: values.HSN,
+              Specification: values.Specification,
+              Price: values.Price,
+              ProductDescription:values.ProductionDescription,
+           }),
+           })
+         .then((response) => response.json())
+         .then((result) => {
+             if(result.message === "SUCCESS"){
+             alert("Product added Succesfully");
+            
+             
+            } 
+            else {
+                alert("Product not added");
+            }
+           });
+    
+    }
+    else{
+        alert("Enter all the details")
+    }
+}
+
+
   const formik = useFormik({
     initialValues: {
       Customer:"",
@@ -47,6 +81,10 @@ export const AddProductsPage=()=>{
     }),
     onSubmit: values => {
       console.log(JSON.stringify(values, null, 2));
+      // console.warn(values.Customer);
+      
+      
+      handleProducts(values);
     },
   });
   

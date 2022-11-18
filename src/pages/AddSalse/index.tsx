@@ -31,7 +31,25 @@ const[inputFeilds,SetInputFeilds]=useState([{Product:"",Categories:"",Qty:"",Pri
  const handleSubmit=(e:any)=>{
   e.preventDefault();
   console.log("collectDatas",inputFeilds)
- }
+
+            fetch ("API Address", {
+            method: "POST",
+            body: JSON.stringify({
+              Product:inputFeilds[0].Product,
+              Categories:inputFeilds[0].Categories,
+              Qty:inputFeilds[0].Qty,
+              Price:inputFeilds[0].Price,
+              GST:inputFeilds[0].GST
+           }),
+           })
+         .then((response) => response.json())
+         .then((result) => {
+             if(result.message === "SUCCESS"){
+             alert("Sale added successfully");
+             
+            } 
+           });
+}
  
     return(
         <>
@@ -63,7 +81,7 @@ const[inputFeilds,SetInputFeilds]=useState([{Product:"",Categories:"",Qty:"",Pri
     ))}
     <div style={{display:"flex"}}>
     <Button variant="contained" type="submit" onClick={handleSubmit} >Sale</Button>
-    <Button variant="contained"  style={{marginLeft:"10px"}} onClick={addNewRow}>ADD</Button>
+    {/* <Button variant="contained"  style={{marginLeft:"10px"}} onClick={addNewRow}>ADD</Button> */}
     </div>
     </form>
       </Grid>

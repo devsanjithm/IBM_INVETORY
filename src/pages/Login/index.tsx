@@ -15,7 +15,7 @@ export const Login=()=>{
       
 
     function handleLogin() {
-        if(Lemail!=="" || Lpass!==""){
+        if(Lemail!=="" && Lpass!==""){
             fetch ("API Address", {
                 method: "POST",
                 body: JSON.stringify({

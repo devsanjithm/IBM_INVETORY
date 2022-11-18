@@ -8,6 +8,44 @@ import * as Yup from 'yup';
   
 
 export const CustomerPage=()=>{
+
+  function handleCustomer(values:any) {
+    if(values!==null){
+        fetch ("API Address", {
+            method: "POST",
+            body: JSON.stringify({
+              CustomerName: values.CustomerName,
+              WarehouseCode: values.WarehouseCode,
+              Email:values.Email,
+              WarehouseName:values.WarehouseName,
+              Phone:values.phone,
+              SecondryNo:values.SecondryNo,
+              WarehouseAddress:values.WarehouseAddress,
+              District:values.District,
+              State:values.State,
+              Country:values.Country,
+              Pincode:values.Pincode,
+              WarehouseIncharge:values.WarehouseIncharge,
+           }),
+           })
+         .then((response) => response.json())
+         .then((result) => {
+             if(result.message === "SUCCESS"){
+             alert("Customer added Successfully");
+             
+             
+            } 
+            else {
+                alert("Please fill all the fields");
+            }
+           });
+    
+    }
+    else{
+        alert("Enter valid Email address and password")
+    }
+}
+
     const formik = useFormik({
         initialValues: {
             CustomerName: '',
@@ -51,6 +89,7 @@ export const CustomerPage=()=>{
         }),
         onSubmit: values => {
           console.log(JSON.stringify(values, null, 2));
+          handleCustomer(values);
         },
       });
   
