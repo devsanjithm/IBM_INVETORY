@@ -167,12 +167,12 @@ export const DrawerComponent = () => {
       logo: <BarChartIcon />,
       pageRoute: "/ReportPage"
     },
-    {
-      id: 10,
-      name: "Employees",
-      logo: <BadgeIcon />,
-      pageRoute: "/EmployeesPage"
-    }
+    // {
+    //   id: 10,
+    //   name: "Employees",
+    //   logo: <BadgeIcon />,
+    //   pageRoute: "/EmployeesPage"
+    // }
   ]
 
   return (
