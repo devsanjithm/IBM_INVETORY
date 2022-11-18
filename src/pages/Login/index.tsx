@@ -12,15 +12,35 @@ export const Login=()=>{
     const pstyle={padding:30 ,height:'50vh', width:280,margin:'40px auto'}
     const{setUser}:any=useContext(UserContext)
 
+      
+
     function handleLogin() {
-        if(Lemail!=="" && Lpass!==""){
-        setUser(true);
+        if(Lemail!=="" || Lpass!==""){
+            fetch ("API Address", {
+                method: "POST",
+                body: JSON.stringify({
+                  email: Lemail,
+                  password:Lpass
+               }),
+               })
+             .then((response) => response.json())
+             .then((result) => {
+                 if(result.message === "SUCCESS"){
+                 alert("You are logged in.");
+                 setUser(true);
+                 
+                } 
+                else {
+                    alert("Please check your login information.");
+                }
+               });
+        
         }
         else{
-            alert("error")
+            alert("Enter valid Email address and password")
         }
-        
     }
+    
     return(
         <Grid>
             <Paper elevation={10} style={pstyle}>

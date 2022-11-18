@@ -1,8 +1,9 @@
 import { Avatar, Button, TextField } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { Grid } from '@mui/material';
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { Link, useNavigate} from "react-router-dom";
+import { UserContext } from "../../context";
 
 export const Register=()=>{
     const [Remail, setRemail] = useState("");
@@ -10,10 +11,34 @@ export const Register=()=>{
     const [Rname, setRname] = useState("");
     const navigate=useNavigate();
     const pstyle={padding:30 ,height:'50vh', width:280,margin:'40px auto'}
+    const{setUser}:any=useContext(UserContext)
 
     function handleRegister() {
-      navigate("/HomePage")
+        if(Remail!=="" || Rpass!=="" || Rname==""){
+            fetch ("API Address", {
+                method: "POST",
+                body: JSON.stringify({
+                  email: Remail,
+                  password:Rpass,
+                  name:Rname
+               }),
+               })
+             .then((response) => response.json())
+             .then((result) => {
+                 if(result.message === "SUCCESS"){
+                 alert("Registeration Successfull");
+                 setUser(true);
+                 
+                } 
+                else {
+                    alert("Please check your login information.");
+                }
+               });
         
+        }
+        else{
+            alert("Enter valid Email address and password")
+        }
     }
     return(
         <Grid>
