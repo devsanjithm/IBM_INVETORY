@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
 
-  <React.StrictMode>
+  <React.Fragment>
     <ContextProvider>
     <BrowserRouter>
     <Provider store={store}>
@@ -21,7 +21,7 @@ root.render(
     </Provider>
     </BrowserRouter>
     </ContextProvider>
-  </React.StrictMode>
+  </React.Fragment>
 );
 
 // If you want to start measuring performance in your app, pass a function

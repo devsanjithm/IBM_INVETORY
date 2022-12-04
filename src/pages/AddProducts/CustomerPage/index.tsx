@@ -55,7 +55,7 @@ export const CustomerTablePage = () => {
                 </Grid>
             </Grid>
 
-            <CustomGrid columnDefs={columnDefs} rowData={data} />
+            <CustomGrid columnDefs={columnDefs} rowData={rowDef} />
         </>
     )
 }

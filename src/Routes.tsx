@@ -1,5 +1,5 @@
 import React from "react"
-import { Route,Routes,Navigate } from "react-router-dom"
+import { Route, Routes, Navigate } from "react-router-dom"
 import { HomePage } from "./pages/Home"
 import { InnerRoutes } from "./components/Drawer/InnerRoutes"
 import { ProductPage } from "./pages/Product"
@@ -21,30 +21,30 @@ import { Register } from "./pages/Register"
 
 
 
-export const MainRoutes=()=>{
-return(
-    <div>
-    <Routes>
-        <Route path="/" element={<InnerRoutes/>}>
-        <Route path="/" element={<Navigate to ="HomePage"/>} />
-        <Route path="/HomePage" element={<HomePage/>} />
-        <Route path="/ProductPage" element={<ProductPage/>} />
-        <Route path="/ReportPage" element={<ReportPage/>} />
-        <Route path="/SalesPage" element={<SalesPage/>} />
-        <Route path="/CustomerPage" element={<CustomerPage/>} />
-        <Route path="/EmployeesPage" element={<EmployeesPage/>} />
-        <Route path="/PurchasePage" element={<PurchasePage/>} />
-        <Route path="/PurchaseReturnPage" element={<PurchaseReturnPage/>} />
-        <Route path="/SalseReturnPage" element={<SalseReturnPage/>} />
-        <Route path="/AddProductsPage" element={<AddProductsPage/>} />
-        <Route path="/CustomerTablePage" element={<CustomerTablePage/>} />
-        <Route path="/StockPage" element={<StockPage/>} />
-        <Route path="/AddStockPage" element={<AddStockPage/>} />
-        <Route path="/AddSalesPage" element={<AddSalesPage/>} />
-        <Route path="/AddEmployeesPage" element={<AddEmployeesPage/>} />
-        </Route>
-    </Routes>
+export const MainRoutes = () => {
+    return (
+        <div>
+            <Routes>
+                <Route path="/" element={<InnerRoutes />}>
+                    <Route path="/" element={<Navigate to="/HomePage" />} />
+                    <Route path="/HomePage" element={<HomePage />} />
+                    <Route path="/ProductPage" element={<ProductPage />} />
+                    <Route path="/ReportPage" element={<ReportPage />} />
+                    <Route path="/SalesPage" element={<SalesPage />} />
+                    <Route path="/CustomerPage" element={<CustomerPage />} />
+                    <Route path="/EmployeesPage" element={<EmployeesPage />} />
+                    <Route path="/PurchasePage" element={<PurchasePage />} />
+                    <Route path="/PurchaseReturnPage" element={<PurchaseReturnPage />} />
+                    <Route path="/SalseReturnPage" element={<SalseReturnPage />} />
+                    <Route path="/AddProductsPage" element={<AddProductsPage />} />
+                    <Route path="/CustomerTablePage" element={<CustomerTablePage />} />
+                    <Route path="/StockPage" element={<StockPage />} />
+                    <Route path="/AddStockPage" element={<AddStockPage />} />
+                    <Route path="/AddSalesPage" element={<AddSalesPage />} />
+                    <Route path="/AddEmployeesPage" element={<AddEmployeesPage />} />
+                </Route>
+            </Routes>
 
-    </div>
-)
+        </div>
+    )
 }
