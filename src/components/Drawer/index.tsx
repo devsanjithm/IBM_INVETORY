@@ -103,6 +103,7 @@ export const DrawerComponent = () => {
   const{setUser}:any=React.useContext(UserContext)
   const navigate=useNavigate()
   function handleLogout(){
+    localStorage.clear()
     setUser(false);
     navigate("/login")
   }
@@ -135,12 +136,12 @@ export const DrawerComponent = () => {
       logo: <CategoryIcon />,
       pageRoute: "/ProductPage"
     },
-    {
-      id: 4,
-      name: "Stock",
-      logo: <ShowChartIcon />,
-      pageRoute: "/StockPage"
-    },
+    // {
+    //   id: 4,
+    //   name: "Stock",
+    //   logo: <ShowChartIcon />,
+    //   pageRoute: "/StockPage"
+    // },
     // {
     //   id:5,
     //   name:"Purchase",

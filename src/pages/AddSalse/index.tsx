@@ -59,31 +59,9 @@ const[inputFeilds,SetInputFeilds]=useState([{Product:"",Categories:"",Qty:"",Pri
             </h2>
          
         <Grid item>
-          <form onSubmit={handleSubmit}>
-        {inputFeilds.map((inputValues:any,index:number)=>(
-          <>
-       
-   
-    <TextField id="outlined-basic" name="Product" label="Product" onChange={event=>handleFormChange(index,event)}  value={inputValues.Product} variant="outlined" style={{width:"400px"}}/>
-    <br/><br />
-    <TextField id="outlined-basic" name="Categories" label="Categories" onChange={event=>handleFormChange(index,event)} value={inputValues.Categories} variant="outlined" style={{width:"400px"}}/>
-    <br/><br />
-    <TextField id="outlined-basic" name="Qty" label="Qty" onChange={event=>handleFormChange(index,event)} value={inputValues.Qty} variant="outlined" style={{width:"400px"}}/>
-    <br/><br />
-    <TextField id="outlined-basic" name="Price" label="Price" onChange={event=>handleFormChange(index,event)} value={inputValues.Price} variant="outlined" style={{width:"400px"}}/>
-    <br/><br />
-    <TextField id="outlined-basic" name="GST" label="GST" onChange={event=>handleFormChange(index,event)} value={inputValues.GST} variant="outlined" style={{width:"400px"}}/>
-    <br /><br />
-    {index ?
-    <Button variant="contained" style={{marginLeft:"420px",marginTop:"-100px"}} onClick={()=> removeNewRow(index)} >Remove</Button>
-    :null}
-    </>
-    ))}
-    <div style={{display:"flex"}}>
-    <Button variant="contained" type="submit" onClick={handleSubmit} >Sale</Button>
-    {/* <Button variant="contained"  style={{marginLeft:"10px"}} onClick={addNewRow}>ADD</Button> */}
-    </div>
-    </form>
+          <TextField label="Quantity"></TextField>
+          
+
       </Grid>
         </Grid>
         </>
