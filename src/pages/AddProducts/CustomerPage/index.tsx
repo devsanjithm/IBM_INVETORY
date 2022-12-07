@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 
 export const CustomerTablePage = () => {
   const [data, setData] = useState([])
-
+  const userDetails = JSON.parse(localStorage.getItem("user") || "")
   const Navigate = useNavigate()
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export const CustomerTablePage = () => {
 
   async function getData() {
 
-    const id = "sanjith"
+    const id = userDetails?.userid || "sanjith"
 
     const url = `http://localhost:5000/api/getCustomer?userid=${id}`
 
@@ -48,12 +48,11 @@ export const CustomerTablePage = () => {
           CustomerEmail: ele.CUSTEMAIL,
           WarehouseName: ele.CUSTADDRESS,
           Phone: ele.CUSTMOBILE,
-
         }
         return element
       })
 
-      console.log(row);
+      // console.log(row);
       setData(row)
     }
   }

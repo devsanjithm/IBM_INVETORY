@@ -6,10 +6,11 @@ import { MainRoutes } from './Routes';
 
 function App() {
   const{user}:any=useContext(UserContext)
+  const islogged = localStorage.getItem("islogged")
   return (
     <div className="App" >
       
-    {user ?
+    {islogged === "true" ?
     <DrawerComponent />
     :
     <Routes1/>
