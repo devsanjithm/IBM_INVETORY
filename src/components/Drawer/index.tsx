@@ -22,7 +22,7 @@ import BadgeIcon from '@mui/icons-material/Badge';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import CategoryIcon from '@mui/icons-material/Category';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { MainRoutes } from '../../Routes';
 import { Button } from '@mui/material';
 import { setDefaultResultOrder } from 'dns/promises';
@@ -101,8 +101,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export const DrawerComponent = () => {
   const{setUser}:any=React.useContext(UserContext)
+  const navigate=useNavigate()
   function handleLogout(){
     setUser(false);
+    navigate("/login")
   }
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);

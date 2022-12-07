@@ -15,16 +15,40 @@ export const CustomerTablePage = () => {
 
     async function getData(){
 
-            const response = await fetch("API adsress");
-            
-            
-            var data = await response.json();
-            
-            console.log(data);
-            setData(data)
+        const response = await fetch("http://localhost:5000/api/getCustomer?userid=sudev", {
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+              'Content-Type': 'application/json'
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer',
+          });
+      
+      
+          var data = await response.json();
+      
+          console.log(data);
+          setData(data)
+      
+          const row = data.map((ele: any, index: any) => {
+            const element = {
+              Sno: index,
+              CustomerName: ele.CUSTNAME,
+              CustomerEmail: ele.CUSTEMAIL,
+              WarehouseName: ele.CUSTADDRESS,
+              Phone:ele.CUSTMOBILE,
 
-            
             }
+            return element
+          })
+      
+        console.log(row);
+        setData(row)
+        }
 
 
     const columnDefs = [
@@ -33,7 +57,6 @@ export const CustomerTablePage = () => {
         { field: 'CustomerEmail' },
         { field: 'WarehouseName' },
         { field: 'Phone' },
-        { field: 'Country' },
     ];
 
     const rowDef = [
@@ -55,7 +78,7 @@ export const CustomerTablePage = () => {
                 </Grid>
             </Grid>
 
-            <CustomGrid columnDefs={columnDefs} rowData={rowDef} />
+            <CustomGrid columnDefs={columnDefs} rowData={data} />
         </>
     )
 }
