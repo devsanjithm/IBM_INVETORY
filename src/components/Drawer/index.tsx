@@ -103,6 +103,7 @@ export const DrawerComponent = () => {
   const{setUser}:any=React.useContext(UserContext)
   const navigate=useNavigate()
   function handleLogout(){
+    localStorage.clear()
     setUser(false);
     navigate("/login")
   }
