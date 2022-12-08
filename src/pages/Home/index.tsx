@@ -90,7 +90,7 @@ export const HomePage = () => {
                   <div style={{ marginLeft: "100px" }}>
                     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                       <h2>Purchase</h2>
-                      <h3>100</h3>
+                      <h3>10</h3>
                     </Typography>
                   </div>
                 </div>

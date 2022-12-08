@@ -136,12 +136,12 @@ export const DrawerComponent = () => {
       logo: <CategoryIcon />,
       pageRoute: "/ProductPage"
     },
-    {
-      id: 4,
-      name: "Stock",
-      logo: <ShowChartIcon />,
-      pageRoute: "/StockPage"
-    },
+    // {
+    //   id: 4,
+    //   name: "Stock",
+    //   logo: <ShowChartIcon />,
+    //   pageRoute: "/StockPage"
+    // },
     // {
     //   id:5,
     //   name:"Purchase",

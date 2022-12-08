@@ -103,8 +103,8 @@ export const AddSalesPage = () => {
     //    } 
     //   });
 
-    console.log("dsas",payload);
-    
+    console.log("dsas", payload);
+
   }
 
   return (
@@ -114,7 +114,6 @@ export const AddSalesPage = () => {
           Add Sales
         </h2>
         <Grid item>
-
           <Box>
             <FormControl style={{ width: "220px" }}>
               <InputLabel id="demo-simple-select-label">Product</InputLabel>
@@ -156,8 +155,8 @@ export const AddSalesPage = () => {
             // onBlur={handleBlur}
             name="Qunatity"
           />
-            <button
-onClick={handleSubmit}
+          <button
+            onClick={handleSubmit}
           >submit</button>
         </Grid>
       </Grid>
